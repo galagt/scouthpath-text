@@ -1,3 +1,34 @@
 \chapter{Analýza}
 
 \section{Stupne Napredovania}
+
+\section{Prípady použitia}
+
+\newlist{usecases}{enumerate}{1}
+\setlist[usecases]{label=UC-\arabic*:}
+
+\newcommand{\usecase}[3]{
+    \item \textbf{#2}\\
+    Aktér: #1\\
+    #3
+}
+
+\begin{usecases}
+    \usecase{Skaut}{Moje napredovanie}{
+        Po otvorení aplikácie sa zobrazia úlohy ktoré si použivateľ zvolil ako sledované.
+        Zo zoznamu úloh si môže pridať nové úlohy medzi sledované.
+        Po dokončení úlohy sa mu úloha odstráni zo sledovaných.
+    }
+    \usecase{Skaut, Radca, Zborový}{Vlastná úloha}{
+
+    }
+    \usecase{Radca}{Moja družina}{
+        Používateľovi sa zobrazí postup všetkých členov jeho družiny.
+    }
+    \usecase{Zborový}{Môj zbor}{
+        Používateľovi sa zobrazia všetci členovia jeho zboru a môže spravovať ich priradenie do družín. Nastavuje Družinových radcov.
+    }
+    \usecase{Programový}{Úprava programu}{
+        
+    }
+\end{usecases}
