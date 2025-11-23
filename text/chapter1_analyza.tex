@@ -91,4 +91,29 @@ Rangerský horizont je koncipovaný na maximálne 3 roky. Skladá sa z piatich �
 \end{usecases}
 
 \section{Zber požiadaviek}
-Zber požiadaviek 
+Zber požiadaviek bol realizovaný .
+
+\subsection{Požiadavky}
+\newlist{requirements}{enumerate}{1}
+\setlist[requirements]{label=REQ-\arabic*:}
+
+\newcommand{\requirement}[4]{
+    \item \textbf{#1}\\
+    FURPS+: #2\\
+    MoSCoW: #3\\
+    #4
+}
+
+\begin{requirements}
+    \requirement{Registrácia}{Funkčný}{Musí mať}{Aplikácia umožní registráciu nového používateľa.}
+    \requirement{Prihlásenie}{Funkčný}{Musí mať}{Aplikácia umožní prihlásenie poučívateľa do jeho použivateľského účtu.}
+    \requirement{Pridanie sa do družiny}{Funkčný}{Musí mať}{}
+    \requirement{Prezeranie programovej ponuky}{Funkčný}{Musí mať}{}
+    \requirement{Pridanie časti programu do wishlistu}{Funkčný}{Musí mať}{}
+    \requirement{Začať program z ponuky/wishlistu}{Funkčný}{Musí mať}{}
+    \requirement{Sledovanie splnených bodov programu}{Funkčný}{Musí mať}{}
+    \requirement{Moja družina - skaut}{}{}{}
+    \requirement{Moja družina - radca}{}{}{}
+    \requirement{Upozornenie na začatie červeného stupňa odborky bez absolvovaného zeleného stupňa}{}{}{}
+    \requirement{Zobrazenie výzvy}{}{}{}
+\end{requirements}
