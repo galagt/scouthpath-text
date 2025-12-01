@@ -12,15 +12,22 @@
 \section{Webové inžinierstvo}
 
 \subsection{Klient-server architektúra}
-https://medium.com/nerd-for-tech/client-server-architecture-explained-with-examples-diagrams-and-real-world-applications-407e9e04e2d1
-https://www.coursera.org/articles/client-server-architecture
-https://www.ebsco.com/research-starters/architecture/client-server-architecture
+Klient-server architektúra je sieťový model v ktorom dve hlavné entity, klienti a server, komunikujú medzi sebou za účeľom splenenie špecifickych úloh alebo zdieľania dát. Klient iniciuje požiadavku, čaká na odpoveď serveru a následne zobrazí dáta používateľovi. Server spracúva požiadavky, získa potrebné dáta a pošle ich klientovi. 
+
+Výhodou tejto architektúry je centralizovaná správa prostriedkov a dát. Táto výhoda sa zároveň stáva aj nevýhodou v podobe jediného bodu zlyhania. V prípade zlyhania serveru dochádza k nedostupnosti prostriedkov a dát.
+
+Architekúra môže byť rozšírená o ďalšie prvky medzi serverom a klientom v podobe middlewaru.
+%https://medium.com/nerd-for-tech/client-server-architecture-explained-with-examples-diagrams-and-real-world-applications-407e9e04e2d1
+
+
+%https://www.coursera.org/articles/client-server-architecture
+%https://www.ebsco.com/research-starters/architecture/client-server-architecture
 
 
 \subsection{API}
-https://www.ibm.com/think/topics/api
-https://aws.amazon.com/what-is/api/
-https://www.oracle.com/europe/cloud/cloud-native/api-management/what-is-api/
+%https://www.ibm.com/think/topics/api
+% https://aws.amazon.com/what-is/api/
+% https://www.oracle.com/europe/cloud/cloud-native/api-management/what-is-api/
 
 \subsubsection{SOUP API}
 
@@ -33,19 +40,38 @@ https://www.oracle.com/europe/cloud/cloud-native/api-management/what-is-api/
 
 \subsubsection{gRPC API}
 
+\subsection{Backend ako služba}
+
+
+\subsection{}
+
 
 \section{Tvorba použivateľského rozhrania}
 
 
 
 \subsection{Základné prvky použivateľského rozhrania}
-https://www.nngroup.com/articles/ui-elements-glossary/
+Štvrtou heuristikou Jakoba Nielsna je udržanie konzistencie a štandardy pri návrhu používateľského rozhrania.
+Z tohto dôvodu ustálili základné prvky, ktoré sa používajú v rámci používateľského rozhrania.
+
+%https://www.nngroup.com/articles/ui-elements-glossary/
 
 
-\subsection{Prototyp s nízkou vernosťou}
-https://www.nngroup.com/articles/ux-prototype-hi-lo-fidelity/
+\subsection{Prototyp}
+Prototyp slúži na otestovanie použiteľnosti použivateľského rozhrania pred tým ako investujeme prostriedky do finálneho riešenia.
+Podľa vernosti s ktorou sa podobajú na finálny produkt rozlišujeme dve kategórie prototypov. Vernosť môže byť v rôznych oblastiach interaktivita, vizuály alebo obsah a príkazy.
+Existujú dva druhy prototypov podľa množstva prostriedkov potrebných na ich zostavenie.
 
-\subsection{Prototyp s vysokou vernosťou}
+\begin{description}
+    \item [Prototyp s nízkou vernosťou] {
+        umožňuje jednoduché úpravy vďaka jeho jednoduchosti. Jednoduchosť prototypu umožňuje predstavenie základnej štruktúry používateľského rozhrania. Na druhú stranu tento prototyp neposkytuje žiadne takmer žiadnu interaktivitu pre používateľa a všetky prechody sa dejú počas testovania manuálne. 
+    }
+    \item [Prototyp s vysokou vernosťou] {
+        poskytuje reálnejšie odozvy systému. Pri testovaní prototypu s vysokou vernosťou môže nastať nedorozumenie, keď sa môže výsledný systém zdať pripravený na použitie aj keď sa jedná len o prototyp.
+    }
+\end{description}
+% https://www.nngroup.com/articles/ux-prototype-hi-lo-fidelity/
+
 
 
 \subsection{Persóny}
