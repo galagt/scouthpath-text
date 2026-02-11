@@ -44,7 +44,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FILL IN THIS INFORMATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ctufittitle{Název příkladné závěrečné práce} % replace with the title of your thesis
+\ctufittitle{ScoutPath - aplikácia pre Slovenský skauting} % replace with the title of your thesis
 \ctufitauthorfull{Bc. Tomáš Sládek} % replace with your full name (first name(s) and then family name(s) / surname(s)) including academic degrees
 \ctufitauthorsurnames{Sládek} % replace with your surname(s) / family name(s)
 \ctufitauthorgivennames{Tomáš} % replace with your first name(s) / given name(s)
@@ -213,19 +213,7 @@
 % OR REMOVE ENTIRELY
 % List the abbreviations in lexicography order.
 %%%%%%%%%%%%%%%%%%%
-\chapter{\thectufitabbreviationlabel}
-
-\begin{tabular}{rl}
-	DFA   & Deterministic Finite Automaton                 \\
-	FA    & Finite Automaton                               \\
-	LPS   & Labelled Prüfer Sequence                       \\
-	NFA   & Nondeterministic Finite Automaton              \\
-	NPS   & Numbered Prüfer Sequence                       \\
-	XML   & Extensible Markup Language                     \\
-	XPath & XML Path Language                              \\
-	XSLT  & eXtensible Stylesheet Language Transformations \\
-	W3C   & World Wide Web Consortium
-\end{tabular}
+\include{text/shortcuts}
 %%%%%%%%%%%%%%%%%%%
 % ABBREVIATIONS END
 %%%%%%%%%%%%%%%%%%%
@@ -236,6 +224,7 @@
 % MODIFY ANYTHING BELOW THIS LINE
 %%%%%%%%%%%%%%%%%%%
 
+\include{text/introduction}
 % \include{text/text} % include `text.tex' from `text/' subdirectory
 \include{text/chapter0_teoria} % include `text.tex' from `text/' subdirectory
 \include{text/chapter1_analyza} % include `text.tex' from `text/' subdirectory
