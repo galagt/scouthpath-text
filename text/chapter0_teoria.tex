@@ -283,7 +283,9 @@ V rámci metodiky návrhu sa odporúča rozlišovať tri základné varianty per
 \subsection{Testovania mladistvým}
 Testovanie použiteľnosti mladistvými sa odlišuje od bežného testovania nakoľko mentálny model mladistvého je odlišný od dospelej osoby. Tomuto mentálnemu modelu treba prispôsobiť aj následné testovanie.
 
-Aby sa nám podarilo dosiahnúť čo najlepšiu vierohodnosť testovania musí byť dĺžka testovania prispôsobená schopnostiam mladistvého. 
+Aby sa nám podarilo dosiahnúť čo najlepšiu vierohodnosť testovania musí byť dĺžka testovania prispôsobená schopnostiam mladistvého. \cite{usability_children}
+
+
 % https://www.nngroup.com/articles/usability-testing-minors/
 % https://www.nngroup.com/articles/usability-of-websites-for-teenagers/
 % https://www.nngroup.com/articles/childrens-websites-usability-issues/
@@ -305,23 +307,44 @@ Architekúra môže byť rozšírená o ďalšie prvky medzi serverom a klientom
 
 
 \subsection{API}
-API, aplikačné programovacie rozhranie slúži na komunikácie medzi programami. 
+% API, aplikačné programovacie rozhranie, je množina pravidiel a protokolov ktorá umožňuje aplikáciam vymieňať si dáta, vykonávať akcie, a interagovať dobre zdokumentovanými spôsobmi. 
+
+Application Programming Interface (API), v slovenskom preklade rozhranie pre programovanie aplikácií, predstavuje súbor pravidiel, protokolov a nástrojov, ktoré umožňujú vzájomnú komunikáciu a výmenu dát medzi odlišnými softvérovými systémami. V modernom softvérovom inžinierstve plní API funkciu sprostredkovateľa (tzv. „middleman“), ktorý definuje presný spôsob, akým môžu klientske aplikácie požadovať a prijímať funkcionalitu alebo dáta od servera.
+
+Z architektonického hľadiska API abstrahuje komplexnosť implementácie backendových systémov. Pre vývojárov to znamená možnosť integrovať externé služby (napr. platobné brány, mapové podklady alebo meteorologické dáta) bez nutnosti vyvíjať tieto riešenia od základu. Tým sa zvyšuje efektivita vývoja, modularita systémov a schopnosť inovácie.
+
+Základné komponenty interakcie cez API:
+\begin{description}
+    
+\item Klient (Client): Strana, ktorá iniciuje požiadavku.
+
+\item Server: Systém, ktorý požiadavku spracováva a poskytuje odpoveď.
+
+\item Koncový bod (Endpoint): Špecifická URL adresa, na ktorú sú požiadavky smerované.
+
+\item Metódy (Methods): Inštrukcie definujúce typ operácie.
+
+\item Dátový formát: Štandardizovaná štruktúra prenosu dát, najčastejšie reprezentovaná formátmi JSON alebo XML.
+
+\end{description}
+
+
 %https://www.ibm.com/think/topics/api
 % https://aws.amazon.com/what-is/api/
 % https://www.oracle.com/europe/cloud/cloud-native/api-management/what-is-api/
 
 \subsubsection{Druhy API}
+Voľba konkrétneho typu API závisí od požiadaviek na stavovosť, výkon a komplexnosť dátových štruktúr. Na základe poskytnutého textu rozlišujeme nasledujúce kľúčové prístupy
 
-\subsubsection{SOAP API}
-
-
-\subsubsection{RESTful API}
-
-
-\subsubsection{Graph API}
-
-
-\subsubsection{gRPC API}
+\begin{description}
+    \item REST predstavuje v súčasnosti najrozšírenejšiu architektúru pre webové služby. Jeho kľúčovou vlastnosťou je bezzstavovosť (statelessness). To znamená, že každá požiadavka od klienta na server musí obsahovať všetky informácie potrebné na jej pochopenie a vybavenie (vrátane autentifikácie). Server neuchováva žiadne informácie o kontexte klienta medzi jednotlivými volaniami, čo zjednodušuje architektúru servera a zvyšuje škálovateľnosť systému.
+    
+    \item SOAP je protokol zameraný na prístup k objektom a webovým službám prostredníctvom formátu XML. Na rozdiel od RESTu, ktorý je architektonickým štýlom, SOAP je striktne definovaný protokol. Využíva jednoduchú štruktúru slovies (GET, POST, PUT, DELETE) a je nezávislý od prenosového protokolu, hoci sa najčastejšie implementuje nad HTTP. Je typický pre podnikové riešenia vyžadujúce formálnu štruktúru správ.
+    
+    \item GraphQL API
+    
+    \item gRPC API
+\end{description}
 
 \subsection{OAuth}
 
