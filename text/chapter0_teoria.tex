@@ -316,15 +316,15 @@ Z architektonického hľadiska API abstrahuje komplexnosť implementácie backen
 Základné komponenty interakcie cez API:
 \begin{description}
     
-\item Klient (Client): Strana, ktorá iniciuje požiadavku.
+\item[Klient]: Strana, ktorá iniciuje požiadavku.
 
-\item Server: Systém, ktorý požiadavku spracováva a poskytuje odpoveď.
+\item[Server]: Systém, ktorý požiadavku spracováva a poskytuje odpoveď.
 
-\item Koncový bod (Endpoint): Špecifická URL adresa, na ktorú sú požiadavky smerované.
+\item[Koncový bod (Endpoint)]: Špecifická URL adresa, na ktorú sú požiadavky smerované.
 
-\item Metódy (Methods): Inštrukcie definujúce typ operácie.
+\item[Metódy]: Inštrukcie definujúce typ operácie.
 
-\item Dátový formát: Štandardizovaná štruktúra prenosu dát, najčastejšie reprezentovaná formátmi JSON alebo XML.
+\item[Dátový formát]: Štandardizovaná štruktúra prenosu dát, najčastejšie reprezentovaná formátmi JSON alebo XML.
 
 \end{description}
 
@@ -337,13 +337,13 @@ Základné komponenty interakcie cez API:
 Voľba konkrétneho typu API závisí od požiadaviek na stavovosť, výkon a komplexnosť dátových štruktúr. Na základe poskytnutého textu rozlišujeme nasledujúce kľúčové prístupy
 
 \begin{description}
-    \item REST predstavuje v súčasnosti najrozšírenejšiu architektúru pre webové služby. Jeho kľúčovou vlastnosťou je bezzstavovosť (statelessness). To znamená, že každá požiadavka od klienta na server musí obsahovať všetky informácie potrebné na jej pochopenie a vybavenie (vrátane autentifikácie). Server neuchováva žiadne informácie o kontexte klienta medzi jednotlivými volaniami, čo zjednodušuje architektúru servera a zvyšuje škálovateľnosť systému.
+    \item[REST] predstavuje v súčasnosti najrozšírenejšiu architektúru pre webové služby. Jeho kľúčovou vlastnosťou je bezzstavovosť (statelessness). To znamená, že každá požiadavka od klienta na server musí obsahovať všetky informácie potrebné na jej pochopenie a vybavenie (vrátane autentifikácie). Server neuchováva žiadne informácie o kontexte klienta medzi jednotlivými volaniami, čo zjednodušuje architektúru servera a zvyšuje škálovateľnosť systému.
     
-    \item SOAP je protokol zameraný na prístup k objektom a webovým službám prostredníctvom formátu XML. Na rozdiel od RESTu, ktorý je architektonickým štýlom, SOAP je striktne definovaný protokol. Využíva jednoduchú štruktúru slovies (GET, POST, PUT, DELETE) a je nezávislý od prenosového protokolu, hoci sa najčastejšie implementuje nad HTTP. Je typický pre podnikové riešenia vyžadujúce formálnu štruktúru správ.
+    \item[SOAP] je protokol zameraný na prístup k objektom a webovým službám prostredníctvom formátu XML. Na rozdiel od RESTu, ktorý je architektonickým štýlom, SOAP je striktne definovaný protokol. Využíva jednoduchú štruktúru slovies (GET, POST, PUT, DELETE) a je nezávislý od prenosového protokolu, hoci sa najčastejšie implementuje nad HTTP. Je typický pre podnikové riešenia vyžadujúce formálnu štruktúru správ.
     
-    \item GraphQL API
+    \item[GraphQL API]
     
-    \item gRPC API
+    \item[gRPC API]
 \end{description}
 
 \subsection{OAuth}
@@ -354,3 +354,5 @@ Voľba konkrétneho typu API závisí od požiadaviek na stavovosť, výkon a ko
 
 
 \subsection{Backend ako služba}
+
+\subsection{Webscraping}
