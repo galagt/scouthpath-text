@@ -356,3 +356,17 @@ Voľba konkrétneho typu API závisí od požiadaviek na stavovosť, výkon a ko
 \subsection{Backend ako služba}
 
 \subsection{Webscraping}
+V rámci metodológie predkladanej práce zohráva kľúčovú úlohu technológia web scraping (často označovaná aj ako web data extraction alebo web harvesting). Ide o ďalšiu významnú webovú technológiu, ktorú využijem v procese zberu a spracovania dát. V ére informačného nadbytku, kedy je podstatná časť relevantných údajov distribuovaná v neštruktúrovanej podobe na internetových portáloch, predstavuje web scraping nevyhnutný nástroj na ich automatizovaný zber. Na rozdiel od aplikačných programových rozhraní (API), ktoré sú často limitované kvótami, spoplatnením alebo vyžadujú striktnú autorizáciu, web scraping umožňuje prístup k verejne dostupným dátam v reálnom čase priamo z prezentačnej vrstvy webu (HTML). Táto technológia tak poskytuje vysokú mieru flexibility a nezávislosti od obmedzení tretích strán.
+
+\subsubsection{Fázy procesu webscraping}
+Proces automatizovanej extrakcie dát možno definovať ako simuláciu správania používateľa, ktorá prebieha v troch fundamentálnych fázach:
+\begin{enumerate}
+    \item Fáza získavania: V tomto kroku dochádza k nadviazaniu komunikácie so serverom prostredníctvom protokolu HTTP. Softvérový agent odošle požiadavku na cieľovú URL adresu a následne prijme odpoveď vo forme surového HTML dokumentu.
+    \item Fáza extrakcie: Ide o proces identifikácie a izolácie konkrétnych dátových prvkov v rámci prijatého kódu. Na presnú lokalizáciu údajov sa využívajú technológie ako dopyty XPath, CSS selektory alebo parsovacie knižnice, ktoré dokážu v neštruktúrovanom HTML dokumente nájsť vopred definované informácie.
+    \item Fáza transformácie: Finálnym krokom je konverzia extrahovaných údajov do štruktúrovaného formátu. Dáta sú následne perzistované v úložiskách typu CSV, SQL databáza alebo JSON, čo umožňuje ich ďalšie analytické spracovanie v rámci praktickej časti práce.
+\end{enumerate}
+
+\subsubsection{Etické otázky ohľadom procesu webscraping}
+Implementácia automatizovaného zberu dát so sebou prináša špecifické výzvy v oblasti etiky a sieťovej neutrality. Hoci je web scraping vo všeobecnosti akceptovaný pre akademické účely, musí byť realizovaný v súlade s pravidlami vlastníkov sieťových zdrojov. Kľúčovým aspektom je predchádzanie preťaženiu serverov (DoS) prostredníctvom implementácie časových oneskorení medzi jednotlivými požiadavkami.
+
+Z hľadiska transparentnosti a povolenia prístupu je kľúčovým nástrojom súbor robots.txt, definovaný v rámci štandardu Robots Exclusion Standard. Tento mechanizmus vznikol ako konsenzus autorov webových robotov už v roku 1994 s cieľom chrániť servery pred nežiaducim prístupom do citlivých alebo nevhodných častí webu, akými sú dočasné informácie, nekonečné virtuálne stromy či skripty s vedľajšími účinkami. Prevádzkovateľ servera prostredníctvom tohto súboru, umiestneného v koreňovom adresári, definuje prístupovú politiku pomocou polí User-agent (určenie konkrétneho robota) a Disallow (vymedzenie zakázaných ciest). Hoci tento štandard nie je právne vynútiteľný a neexistuje absolútna záruka jeho dodržiavania všetkými agentmi, v akademickej obci a profesionálnej praxi sa považuje za fundamentálny etický kódex. Rešpektovanie týchto inštrukcií je v mojej práci primárnym predpokladom pre zodpovedný a korektný výskum v digitálnom priestore.
