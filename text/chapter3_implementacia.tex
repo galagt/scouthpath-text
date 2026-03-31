@@ -1,6 +1,13 @@
 \chapter{Implementácia}
 
 \section{Získavanie dát}
+Programová ponuka slovenského skautingu sa nachádza primárne na webových stŕankach. Obsahom stránok je detailný popis odboriek, výziev, voľných programových modulov a najvyšších programových ocenení. Na získanie dát ohľadom programu som zvolil webscraping\ref{webscraping} so snahou uložiť tieto dáta do štruktúrovanej podoby, ktorú môžem následne využiť v mojej aplikácii.
+
+Analýzou webových stránok slovenského skautingu som dospel k nasledujúcej stratégií. V prvom kroku som získal postupne všetky odborky, ktoré boli na stránkach rozdelené podľa vekových kategórií. V druhom kroku som sa pustil do výziev ktoré boli náročnejšie v dôsledku laxnejšej štruktúry čomu bolo treba upraviť selektory na extrakciu textu a dátový model do ktorého som ich ukladal. V poslednom kroku som extrahoval z web stránky najvyššie programové ocenenia. Voľné programové moduly neobsahovali takmer žiadnu spoločnú štruktúru naprieč sebou, z tohto dôvodu boli vynechané počas získavania dát.
+
+Na samotnú činnosť procesu webscraping som zvolil knižnicu todo pre programovací jazyk Python. Táto knižnica obsahovala potrebné nástroje na sťahovanie HTML obsahu webstránok a potrebné CSS selektory na extrakciu žiadaného textu.
+
+Získané dáta som ukladal do súborov vo formáte JSON.
 
 \section{Flutter}
 
