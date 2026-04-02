@@ -296,6 +296,10 @@ Aby sa nám podarilo dosiahnúť čo najlepšiu vierohodnosť testovania musí b
 
 \section{Webové inžinierstvo}
 
+
+\subsection{Synchronizácia dát}
+Synchronizáciu dát medzi klientami je možné dosiahnť viacerými spôsobmi pričom sa líšia topografickou štruktúrou ktorú využívajú na synchronizáciu ako aj kontrolou nad dátami. Medzi hlavné architektúry ktoré sa využívajú na komunikáciu a synchronizáciu dát patrí klient-server architektúra a peer-to-peer architektúra.
+
 \subsection{Klient-server architektúra}
 Klient-server architektúra je sieťový model v ktorom dve hlavné entity, klienti a server, komunikujú medzi sebou za účeľom splenenie špecifickych úloh alebo zdieľania dát. Klient iniciuje požiadavku, čaká na odpoveď serveru a následne zobrazí dáta používateľovi. Server spracúva požiadavky, získa potrebné dáta a pošle ich klientovi. 
 
@@ -308,6 +312,8 @@ Architekúra môže byť rozšírená o ďalšie prvky medzi serverom a klientom
 %https://www.coursera.org/articles/client-server-architecture
 %https://www.ebsco.com/research-starters/architecture/client-server-architecture
 
+\subsection{Peer-to-peer architektúra}
+Táto architektúra je vyznačovaná absenciou centrálneho prvku ktorý by slúžil ako zdroj pravdy. Komunikácia prebieha priamo medzi klientami a je potreba využiť synchronizačný algoritmus ktorý umožní vzájomnú výmenu dát.
 
 \subsection{API}
 % API, aplikačné programovacie rozhranie, je množina pravidiel a protokolov ktorá umožňuje aplikáciam vymieňať si dáta, vykonávať akcie, a interagovať dobre zdokumentovanými spôsobmi. 
@@ -351,12 +357,28 @@ Voľba konkrétneho typu API závisí od požiadaviek na stavovosť, výkon a ko
 
 \subsection{OAuth}
 
-\subsection{Ako služba}
+\subsection{Cloud computing}
+Cloud umožňuje zaobstaranie potrebného hardvéru podľa aktuálnych potrieb softvérovej aplikácie.
 
 \subsubsection{Typy služieb}
+Podľa úrovne s ktorou pracujeme rozlišujeme viacero úrovní služieb, ktoré nám cloud poskytuje.
+
+\begin{description}
+    \item[IaaS] Infraštruktúra ako služba poskytuje používateľom správu nad procesmi, sieťovými prvkami, úložným priestorom a ďalšími základnými výpočtovými prvkami umožňujúc používateľom spustiť hocijaký softvér od celých operačných systémov až po špecifické aplikácie. 
+    
+    V tomto modeli dodávateľ zodpovedá iba za fyzickú infraštruktúru a poskytuje služby pomocou virtualizácie.
+    Používateľ má tak maximálnu kontrolu nad svojím prostredím akoby ho celé vlastnil vo vlastnej réžii.
+    
+    \item[PaaS] Platforma ako služba poskytuje používateľovi predom nakonfigurované prostredie do ktorého môže nasadiť svoju aplikáciu. Toto prostredie zvykne byť definované dostupným programovacím jazykom, nainštalovanými knižnicami a dostupnými nástrojmi. 
+    
+    V tomto modeli dodávateľ zodpovedá a spravuje všetko až na samotnú nasadenú aplikáciu, ktorá zostáva v správe používateľa. 
+    
+    \item[SaaS] Softvér ako služba poskytuje priamo prístup k aplikácii pre koncových používateľov.
+\end{description}
 
 
 \subsection{Backend ako služba}
+Špeciálnym prípadom softvéru ako služba je keď poskytovaný softvér slúži ako backend pre iný softvér
 
 \subsection{Webscraping}\label{webscraping}
 V rámci metodológie predkladanej práce zohráva kľúčovú úlohu technológia web scraping (často označovaná aj ako web data extraction alebo web harvesting). Ide o ďalšiu významnú webovú technológiu, ktorú využijem v procese zberu a spracovania dát. V ére informačného nadbytku, kedy je podstatná časť relevantných údajov distribuovaná v neštruktúrovanej podobe na internetových portáloch, predstavuje web scraping nevyhnutný nástroj na ich automatizovaný zber. Na rozdiel od aplikačných programových rozhraní (API), ktoré sú často limitované kvótami, spoplatnením alebo vyžadujú striktnú autorizáciu, web scraping umožňuje prístup k verejne dostupným dátam v reálnom čase priamo z prezentačnej vrstvy webu (HTML). Táto technológia tak poskytuje vysokú mieru flexibility a nezávislosti od obmedzení tretích strán.
