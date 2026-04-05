@@ -129,24 +129,8 @@ Voľné programové moduly predstavujú voliteľný doplnok skautského programu
 Najvyššie programové ocenenia predstavujú vrcholné méty, ktoré môže člen v rámci jednotlivých vekových kategórií dosiahnuť. Tieto ocenenia nie sú samostatnými súbormi úloh, ale fungujú ako integrovaný súhrn prerekvizít naprieč celou programovou ponukou. Ich získanie je podmienené kombináciou úspešného absolvovania stupňov napredovania, získania definovaného počtu odboriek, splnenia konkrétnych výziev a zloženia skautského sľubu.\cite{noauthor_najvyssie_2025}
 % Vyvrcholením programovej činnosti pre vekovú kategóriu je najvyššie programové ocenenie, ktoré sa získava po splnení ostatných častí programu pre danú vekovú kategóriu. \cite{noauthor_najvyssie_2025}
 
-
-\section{Analýza podobných riešení}
-Celosvetovosť skautského hnutia dáva priestor na vznik viacerým organizáciam zaoberajúcich sa podobnou tématikou. Hľadanie už existujúcich riešení som realizoval vyhľadávaním na Google Play pre operačný systém android a na App Store pre iOS. Vyhľadávanie bolo pomocou kľúčových slov Scout Výsledkom  Jednou z najväčších organizácií v rámci hnutia je Boy Scouts of America. BSA obsahuje podobnú základnú ponuku ako SLSK v oblasti odboriek a najvyších programových ocenení. Na zobrazenie tejto ponuky existuje viacero aplikácií medzi inými Path to Eagle, ScoutChamp.
-
-% https://play.google.com/store/apps/details?id=scoutsandguides.scouts_and_guides&hl=en
-% https://play.google.com/store/apps/details?id=com.newryscouts.scoutskills&hl=en
-% https://play.google.com/store/apps/details?id=com.widesolutions.sidi&hl=en
-% https://apps.apple.com/cz/app/trooptrack-mobile/id1002622052
-% https://apps.apple.com/cz/app/troopwebhost/id1524044969
-% 
-
-\subsection{Path To Eagle}
-Path to Eagle je aplikácia na operačný systém iOS určená pre Scouting America. Aplikácia slúží na trackovanie progresu jednotlivých skautov v napredovaní cez hodnosti v rámci programu Scouting America. Aplikácia funguje čisto v offline prostredí a jediná možnosť na synchronizáciu postupu skautov je export progresu na jednom zariadení a import na druhom zariadení. Aplikácia umožňuje vytvorenie viacerých skautov a pre každého sledovať postup samostatne. Ku každému stupňnu napredovania v rámci programu Scoutig America poskytuje pre skauta checklist úloh ktoré musí splniť a umožňuje mu písať si k tomu vlastné poznámky. Ďalej aplikácia obsahuje zoznam odboriek ktoré môže skaut plniť. Ku každej odborke je následne dostupné pdf ktoré je výstrihom z knihy pre program Scouting America.
-
-\subsection{Scout Champ}
-Aplikácia Scout Champ má podobný charakter ako aplikácia Path To Eagle. Zhodné sú v cieľovom operačnom systéme a v obsahu programu ktoré ponúkajú. Okrem sledovania postupu jednotlivých členov však umožňuje aj zdieľanie progresu cez cloud. Progres však zdieľa spôsobo ktorým ho môže ktokoľvek s linkom prepísať bez žiadneho auditu alebo schvaľovania. Oproti aplikácii Path To Eagle sú odborky pretransformované taktiež do formy checklistu.
-
 \section{Softvérové inžinierstvo}
+Vývoj softvéru je zdĺhavý a náročný proces. Na usmernenie projektu vznikli a boli časom otestované viaceré metodológie.
 
 \subsection{Životný cyklus vývoja softvéru SDLC}
 Výber správnej metodológie pre SDLC kladie dôležitú rolu na úspech projektu. SDLC metodológie ponúkajú kostru ktorá sprevádza projekt naprieč návrhom, vývojom a implementáciou softvérového riešenia. SDLC je proces ktorý načŕta fázy a aktivity zapojené do tvorby softvéru od kenceptu cez development po údržbu. Medzi typické fázy SDLC patrí:
@@ -212,14 +196,14 @@ Vytváranie prototypov
 % https://www.indeed.com/career-advice/career-development/requirement-gathering-techniques
 % https://medium.com/@marcus_davis/reliable-requirement-gathering-techniques-in-system-analysis-and-design-you-should-know-c28928dfced1
 
-\subsubsection{Kategorizácia požiadaviek}
+\subsection{Kategorizácia požiadaviek}
 Po zozbieraní požiadviek, prichádza na rad rozdelenie požiadaviek podľa rôznych metrík. Hlavnými metrikami zvyknú bývať dôležitosť požiadavky, na ktorú sa používa kategorizácia MoSCoW. Táto kategorizácia delí požiadavky na tie ktoré musia byť zapracované do softvéru, teda must have, tie ktoré by mali byť zapracované do systému, teda should have, tie ktoré by mohli byť vo výslednom softvéri, teda could have a do poslednej kategorizácie spadajú tie ktoré nebudú implementované do softvéru, teda won't have.
 
 Ďalšou metrikou je FURPS+, ktoré delí požiadavky na funkčné, používateľné, spoľahlivé, výkonostné a 
 
 
 \section{User centered design}
-
+User centered design je definovaný ako prístup k systémovému dizajnu a vývoju, ktorého cieľom je spraviť interaktívne systémy viac použiteľné, sústredním sa na používanie systému používateľmi, aplikovaním ľudských faktorov a znalostí a techník použiteľnosti.\cite{swe_vocabulary} V praxi to znamená dizajnovať systém s použiteľnosťou systému na prvom mieste.
 
 
 \section{Tvorba použivateľského rozhrania}
