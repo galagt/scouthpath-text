@@ -4,15 +4,24 @@ Táto kapitola sa venuje návrhu frontendu a backendu. Návrh frontendu sa sklad
 \section{Doménový model}
 
 \section{Procesy}
+Na základe analýzy musí systém podporovať hlavné procesy. Prvým procesom je autentizácia používateľa, tento proces obsahuje prihlásenie registrovaného používateľa alebo registráciu nového používateľa. Na identifikáciu používateľa slúži emailová adresa. 
+
+Ďalším procesom je vytvorenie družiny, resp. pridanie sa do už existujúcej družiny. 
+
+V poslednom rade je najdôležitejší proces označovanie úloh za splnené a potrebné schvaľovanie vedúcim.
 
 \section{Aktualizácie obsahu programu SLSK}
 Program SLSK sa síce nemení často, ale môže dôjsť buď k zmene jednotlivých častí, pridanie novej časti napríklad novej výnimočnej výzvy alebo môže dôjsť ku zrušeniu nejakej časti. Na zachovanie možnosti prehliadania si programovej ponuky SLSK musia byť všekty jeho časti uložené aj v zariadení spolu s aplikáciou. Pri štarte aplikácie sa uskutoční dotaz na server ohľadom nových častí programovej ponuky a v prípade zmeny sa tieto zmeny prepíšu do zariadenia používateľa.
 
 
-\section{Architektúra aplikácie}
+\section{Architektúra systému}
+Systém obsahuje distribuovaných klientov na koncových zariadeniach používateľov. Na synchronizáciu dát na základe analýzy je najvhodnejšia klient server architektúra.
+
+Pri voľbe backendu som zvolil využitie BaaS služby na urýchlenie vývoju pre čo najskoršie uvedenie do testovacej prevádzky.
 
 
 \section{Voľba programovacieho jazyku}
+
 
 \section{LoFi prototyp}
 
