@@ -29,7 +29,7 @@ jobs:
           
           # Check if the PDF has changed compared to the repo version
           if [ -n "$(git status --porcelain ctufit-thesis.pdf)" ]; then
-            git add main.pdf
+            git add ctufit-thesis.pdf
             git commit -m "Auto-update compiled PDF [skip ci]"
             git push
           else
