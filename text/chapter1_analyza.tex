@@ -22,6 +22,9 @@ Aplikácia Scout Champ má podobný charakter ako aplikácia Path To Eagle. Zhod
 TroopTrack je informačný systém pre skautské zbory. Aplikácia obsahuje viacero oblastí využitia, ako sú sledovanie progresu jednotlivých členov, organizácia udalostí, správa majetku a komunikáciu. Na tieto účely existuje komplexná správa členov s používateľskými účtami od mladistvých skautov, cez rodičov až po vedúcich zboru. 
 
 \subsection{Campfire}
+Campfire je informačný systém s primárnou podporou pre Scouting America. Systém obsahuje správu členov, organizáciu udalostí a komunikáciu na štýl emailu v rámci systému. Ďalej umožňuje ukladanie fotiek. 
+
+Sledovanie programu členov je umožnené na zborovej úrovni avšak neobsahuje program SLSK. 
 
 \subsection{Scouts App}
 
@@ -42,6 +45,7 @@ TroopTrack je informačný systém pre skautské zbory. Aplikácia obsahuje viac
         Po otvorení aplikácie sa zobrazia úlohy ktoré si použivateľ zvolil ako sledované.
         Zo zoznamu úloh si môže pridať nové úlohy medzi sledované.
         Po dokončení úlohy sa mu úloha odstráni zo sledovaných.
+        Úlohy ktroré má medzi sledovanými môže odstrániť zo zoznamu splnením alebo prestaním sledovania.
     }
     \usecase{Skaut, Radca}{Vlastná úloha}{
         Skaut zvolí úlohu ktorú chce nahradiť, navrhne nové znenie, úplne nové alebo úprava stávajúceho, a pošle ho radcovi na schválenie.
@@ -51,15 +55,13 @@ TroopTrack je informačný systém pre skautské zbory. Aplikácia obsahuje viac
     \usecase{Skaut, Radca}{Splnenie úlohy}{
         Po splnení úlohy môže nastať schvaľovanie splnenia zo strany radcu.
         Radca môže zadať hromadné splnenie úlohy členom svojej družiny.
+        V prípade označenia úlohy za splnenú radcom, je úloha okamžite aj overená.
     }
     \usecase{Radca}{Moja družina}{
-        Používateľovi sa zobrazí postup všetkých členov jeho družiny.
+        Používateľovi sa zobrazí zoznam všetkých členov jeho družiny. Môže pridať nových členov pomocou kódu družiny. Vidí progres všetkých členov a môže si progres obmedziť z hľadiska členov a z hľadiska úloh.
     }
     \usecase{Radca}{Pridanie člena do družiny}{
-        Radca môže pridť člena do družiny pomocou jeho mailu, alebo môže vytvoriť QR kód pomocou ktorého sa používateľ po prihlásení automaticky pridá do družiny.
-    }
-    \usecase{Zborový}{Môj zbor}{
-        Používateľovi sa zobrazia všetci členovia jeho zboru a môže spravovať ich priradenie do družín. Nastavuje Družinových radcov.
+        Radca má v rámci svojej družiny kód ktorý môže používateľ zadať do aplikácie aby sa pridal do družiny, alebo môže naskenovať QR kód pomocou ktorého sa používateľ po prihlásení automaticky pridá do družiny.
     }
     \usecase{Programový}{Úprava programu}{
         Pri zmenách vo vdelávacio výchovnom programe môže programový vedúci zmeniť, pridať alebo odstrániť časti programu. Prípadne môže vytvoriť úplne nový program alebo zrušiť už existujúci.
@@ -67,7 +69,7 @@ TroopTrack je informačný systém pre skautské zbory. Aplikácia obsahuje viac
 \end{usecases}
 
 \section{Zber požiadaviek}
-Zber požiadaviek bol realizovaný .
+Zber požiadaviek bol realizovaný komunikáciou s ústredím Slovenského skautingu a zborovými vedúcimi.
 
 \subsection{Požiadavky}
 \newlist{requirements}{enumerate}{1}
@@ -82,7 +84,7 @@ Zber požiadaviek bol realizovaný .
 
 \begin{requirements}
     \requirement{Registrácia}{Funkčný}{Musí mať}{Aplikácia umožní registráciu nového používateľa.}
-    \requirement{Prihlásenie}{Funkčný}{Musí mať}{Aplikácia umožní prihlásenie poučívateľa do jeho použivateľského účtu.}
+    \requirement{Prihlásenie}{Funkčný}{Musí mať}{Aplikácia umožní prihlásenie používateľa do jeho použivateľského účtu.}
     \requirement{Pridanie sa do družiny}{Funkčný}{Musí mať}{}
     \requirement{Pridanie do družiny pomocou QR kódu}{}{}{}
     \requirement{Prezeranie programovej ponuky}{Funkčný}{Musí mať}{}
