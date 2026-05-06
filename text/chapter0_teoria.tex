@@ -364,7 +364,17 @@ Podľa úrovne s ktorou pracujeme rozlišujeme viacero úrovní služieb, ktoré
 
 
 \subsection{Backend ako služba}
-Špeciálnym prípadom softvéru ako služba je keď poskytovaný softvér slúži ako backend pre iný softvér
+Backend ako služba (BaaS) predstavuje model cloudovej služby, v ktorom poskytovateľ preberá plnú zodpovednosť za implementáciu, správu a prevádzku serverovej časti aplikácie. Tento prístup umožňuje vývojárom delegovať komplexné operácie na strane servera na špecializovanú infraštruktúru tretej strany, čím sa proces vývoja koncentruje primárne na klientsku časť a používateľskú skúsenosť.
+
+BaaS poskytuje prostredníctvom aplikačných rozhraní (API) a softvérových vývojových súprav (SDK) vopred nakonfigurované softvérové moduly pre kritické serverové funkcionality. Medzi štandardné komponenty BaaS platforiem patria:
+\begin{itemize}
+    \item Správa databáz: Abstraktná vrstva nad databázovým systémom umožňujúca ukladanie a dopytovanie dát bez nutnosti manuálnej konfigurácie schéma alebo servera.
+    \item Autentifikácia a autorizácia používateľov: Komplexné riešenie identity, správy relácií a zabezpečenia prístupu.
+    \item Cloudové úložisko: Škálovateľný priestor pre ukladanie obsahu generovaného používateľmi.
+    \item Push notifikácie a vzdialená aktualizácia: Mechanizmy pre asynchrónnu komunikáciu so zariadeniami, nevyhnutné najmä pre mobilné platformy.
+    \item Hosting a výpočtová logika: Prevádzka klientskych aplikácií a prípadná integrácia vendor-špecifických služieb.
+\end{itemize}
+\cite{baas}
 
 \subsection{Webscraping}\label{webscraping}
 V rámci metodológie predkladanej práce zohráva kľúčovú úlohu technológia web scraping (často označovaná aj ako web data extraction alebo web harvesting). Ide o ďalšiu významnú webovú technológiu, ktorú využijem v procese zberu a spracovania dát. V ére informačného nadbytku, kedy je podstatná časť relevantných údajov distribuovaná v neštruktúrovanej podobe na internetových portáloch, predstavuje web scraping nevyhnutný nástroj na ich automatizovaný zber. Na rozdiel od aplikačných programových rozhraní (API), ktoré sú často limitované kvótami, spoplatnením alebo vyžadujú striktnú autorizáciu, web scraping umožňuje prístup k verejne dostupným dátam v reálnom čase priamo z prezentačnej vrstvy webu (HTML). Táto technológia tak poskytuje vysokú mieru flexibility a nezávislosti od obmedzení tretích strán.

@@ -14,22 +14,28 @@ Celosvetovosť skautského hnutia dáva priestor na vznik viacerým organizácia
 
 \subsection{Path To Eagle}
 Path to Eagle je aplikácia na operačný systém iOS určená pre Scouting America. Aplikácia slúží na trackovanie progresu jednotlivých skautov v napredovaní cez hodnosti v rámci programu Scouting America. Aplikácia funguje čisto v offline prostredí a jediná možnosť na synchronizáciu postupu skautov je export progresu na jednom zariadení a import na druhom zariadení. Aplikácia umožňuje vytvorenie viacerých skautov a pre každého sledovať postup samostatne. Ku každému stupňnu napredovania v rámci programu Scoutig America poskytuje pre skauta checklist úloh ktoré musí splniť a umožňuje mu písať si k tomu vlastné poznámky. Ďalej aplikácia obsahuje zoznam odboriek ktoré môže skaut plniť. Ku každej odborke je následne dostupné pdf ktoré je výstrihom z knihy pre program Scouting America.
+\cite{path_to_eagle}
 
 \subsection{Scout Champ}
 Aplikácia Scout Champ má podobný charakter ako aplikácia Path To Eagle. Zhodné sú v cieľovom operačnom systéme a v obsahu programu ktoré ponúkajú. Okrem sledovania postupu jednotlivých členov však umožňuje aj zdieľanie progresu cez cloud. Progres však zdieľa spôsobo ktorým ho môže ktokoľvek s linkom prepísať bez žiadneho auditu alebo schvaľovania. Oproti aplikácii Path To Eagle sú odborky pretransformované taktiež do formy checklistu.
+\cite{scout_champ}
 
 \subsection{TroopTrack}
 TroopTrack je informačný systém pre skautské zbory. Aplikácia obsahuje viacero oblastí využitia, ako sú sledovanie progresu jednotlivých členov, organizácia udalostí, správa majetku a komunikáciu. Na tieto účely existuje komplexná správa členov s používateľskými účtami od mladistvých skautov, cez rodičov až po vedúcich zboru. 
+\cite{trooptrack}
 
 \subsection{Campfire}
 Campfire je informačný systém s primárnou podporou pre Scouting America. Systém obsahuje správu členov, organizáciu udalostí a komunikáciu na štýl emailu v rámci systému. Ďalej umožňuje ukladanie fotiek. 
 
 Sledovanie programu členov je umožnené na zborovej úrovni avšak neobsahuje program SLSK. 
+\cite{campfire}
 
 \subsection{Scouts App}
 
 
 \section{Prípady použitia}
+
+Prípady použitia popisujú hlavné interakcie medzi používateľmi aplikácie a systémom. Na základe týchto scenárov sa definovali funkčné požiadavky a dôležité správanie aplikácie.
 
 \newlist{usecases}{enumerate}{1}
 \setlist[usecases]{label=UC-\arabic*:}
@@ -41,30 +47,33 @@ Sledovanie programu členov je umožnené na zborovej úrovni avšak neobsahuje 
 }
 
 \begin{usecases}
-    \usecase{Skaut}{Moje napredovanie}{
-        Po otvorení aplikácie sa zobrazia úlohy ktoré si použivateľ zvolil ako sledované.
-        Zo zoznamu úloh si môže pridať nové úlohy medzi sledované.
-        Po dokončení úlohy sa mu úloha odstráni zo sledovaných.
-        Úlohy ktroré má medzi sledovanými môže odstrániť zo zoznamu splnením alebo prestaním sledovania.
+    \usecase{Skaut}{Registrácia a prihlásenie}{
+        Používateľ si vytvorí nový účet alebo sa prihlási existujúcimi prihlasovacími údajmi.
+        Aplikácia overí identitu a po úspešnom overení otvorí osobný profil používateľa.
     }
-    \usecase{Skaut, Radca}{Vlastná úloha}{
-        Skaut zvolí úlohu ktorú chce nahradiť, navrhne nové znenie, úplne nové alebo úprava stávajúceho, a pošle ho radcovi na schválenie.
-        V procese schvaľovania môžu ešte znenie novej úlohy pozmeniť. 
-        Keď úloha zodpovedá očakávanej náročnosti, tak ju schváli a skautovi sa pridá medzi aktívne úlohy.
+    \usecase{Skaut}{Pripojenie do družiny}{
+        Skaut zadá do aplikácie kód družiny alebo naskenuje QR kód od radcu.
+        Po overení kódu sa používateľ pridá do správnej družiny.
     }
-    \usecase{Skaut, Radca}{Splnenie úlohy}{
-        Po splnení úlohy môže nastať schvaľovanie splnenia zo strany radcu.
-        Radca môže zadať hromadné splnenie úlohy členom svojej družiny.
-        V prípade označenia úlohy za splnenú radcom, je úloha okamžite aj overená.
+    \usecase{Skaut}{Prezeranie programu a wishlist}{
+        Používateľ si prezrie dostupné body programu a odborky.
+        Vybrané body si označí ako sledované, alebo ich rovno označí ako splnené.
     }
-    \usecase{Radca}{Moja družina}{
-        Používateľovi sa zobrazí zoznam všetkých členov jeho družiny. Môže pridať nových členov pomocou kódu družiny. Vidí progres všetkých členov a môže si progres obmedziť z hľadiska členov a z hľadiska úloh.
+    \usecase{Skaut}{Plnenie úloh a sledovanie progresu}{
+        Skaut označí úlohu ako dokončenú a systém zaznamená postup.
+        Ak je to potrebné, pošle sa požiadavka o schválenie radcovi.
+        Po schválení sa úloha označí za overenú a progres sa aktualizuje.
     }
-    \usecase{Radca}{Pridanie člena do družiny}{
-        Radca má v rámci svojej družiny kód ktorý môže používateľ zadať do aplikácie aby sa pridal do družiny, alebo môže naskenovať QR kód pomocou ktorého sa používateľ po prihlásení automaticky pridá do družiny.
+    \usecase{Radca}{Správa členov a schvaľovanie úloh}{
+        Radca vidí zoznam členov svojej družiny a ich aktuálny progres.
+        Môže schváliť dokončenie úloh, pripísať body hromadne alebo upraviť úlohy pre jednotlivých členov.
     }
-    \usecase{Programový}{Úprava programu}{
-        Pri zmenách vo vdelávacio výchovnom programe môže programový vedúci zmeniť, pridať alebo odstrániť časti programu. Prípadne môže vytvoriť úplne nový program alebo zrušiť už existujúci.
+    \usecase{Radca}{Zasielanie prehľadu progresu}{
+        Radca môže vygenerovať prehľad progresu druhej skupiny a poslať ho e-mailom z aplikácie.
+    }
+    \usecase{Programový vedúci}{Správa programového obsahu}{
+        Programový vedúci vytvorí, zmení alebo odstráni časti vzdelávacieho programu.
+        Zmeny sa prejavia v ponuke bodov dostupných pre skautov a radcov.
     }
 \end{usecases}
 
@@ -72,6 +81,8 @@ Sledovanie programu členov je umožnené na zborovej úrovni avšak neobsahuje 
 Zber požiadaviek bol realizovaný komunikáciou s ústredím Slovenského skautingu a zborovými vedúcimi.
 
 \subsection{Požiadavky}
+Zber požiadaviek zahŕňal funkčné aj nefunkčné aspekty systému. Nasledujúca sada požiadaviek reflektuje hlavné potreby používateľov aj očakávania z hľadiska spoľahlivosti, bezpečnosti a použiteľnosti.
+
 \newlist{requirements}{enumerate}{1}
 \setlist[requirements]{label=REQ-\arabic*:}
 
@@ -83,19 +94,22 @@ Zber požiadaviek bol realizovaný komunikáciou s ústredím Slovenského skaut
 }
 
 \begin{requirements}
-    \requirement{Registrácia}{Funkčný}{Musí mať}{Aplikácia umožní registráciu nového používateľa.}
-    \requirement{Prihlásenie}{Funkčný}{Musí mať}{Aplikácia umožní prihlásenie používateľa do jeho použivateľského účtu.}
-    \requirement{Pridanie sa do družiny}{Funkčný}{Musí mať}{}
-    \requirement{Pridanie do družiny pomocou QR kódu}{}{}{}
-    \requirement{Prezeranie programovej ponuky}{Funkčný}{Musí mať}{}
-    \requirement{Pridanie časti programu do wishlistu}{Funkčný}{Musí mať}{}
-    \requirement{Začať program z ponuky/wishlistu}{Funkčný}{Musí mať}{}
-    \requirement{Sledovanie splnených bodov programu}{Funkčný}{Musí mať}{}
-    \requirement{Moja družina - skaut}{}{}{}
-    \requirement{Moja družina - radca}{}{}{}
-    \requirement{Upozornenie na začatie červeného stupňa odborky bez absolvovaného zeleného stupňa}{}{}{}
-    \requirement{Zobrazenie výzvy}{}{}{}
-    \requirement{Poslat progres druziny na mail}{}{}{}
+    \requirement{Registrácia používateľa}{Funkčný}{M}{Aplikácia umožňuje vytvorenie nového používateľského účtu na základe e-mailu a hesla.}
+    \requirement{Prihlásenie do účtu}{Funkčný}{M}{Používateľ sa môže prihlásiť pomocou e-mailu a hesla a následne získať prístup k svojim dátam.}
+    \requirement{Pripojenie do družiny}{Funkčný}{M}{Skaut sa môže pridať do družiny pomocou jedinečného kódu alebo QR kódu generovaného radcom.}
+    \requirement{Správa členov družiny}{Funkčný}{M}{Radca vidí zoznam členov svojej družiny, ich pokrok a môže spravovať členstvo.}
+    \requirement{Prezeranie programovej ponuky}{Funkčný}{M}{Používateľ si môže prezrieť všetky dostupné programové úlohy a odborky v aktuálnom programe.}
+    \requirement{Wishlist programových bodov}{Funkčný}{C}{Používateľ si môže označiť body programu, ktoré chce sledovať alebo dokončiť neskôr.}
+    \requirement{Začatie programu / úlohy}{Funkčný}{M}{Používateľ môže spustiť vybranú úlohu alebo časť programu, čím sa začne jej sledovanie.}
+    \requirement{Sledovanie progresu}{Funkčný}{M}{Aplikácia eviduje dokončené body programu a priebežný progres používateľa aj družiny.}
+    \requirement{Schvaľovanie splnenia úloh}{Funkčný}{M}{Radca môže schváliť alebo zamietnuť dokončenie úlohy zaslané skautom.}
+    \requirement{Notifikácie a upozornenia}{Použiteľnosť}{S}{Aplikácia upozorní skauta, ak sa pokúsi začať červený stupeň odborky bez dokončenia potrebného zeleného stupňa.}
+    \requirement{Zobrazenie výziev a oznámení}{Použiteľnosť}{S}{Používateľ môže vidieť aktuálne výzvy, oznámenia alebo odporúčania pre ďalší postup v programe.}
+    \requirement{Zaslanie progresu na e-mail}{Funkčný}{S}{Radca môže vygenerovať prehľad progresu družiny a poslať ho e-mailom vybraným príjemcom.}
+    \requirement{Offline dostupnosť údajov}{Spoľahlivosť}{S}{Aplikácia umožňuje prístup k posledným synchronizovaným dátam aj bez dostupného internetu.}
+    \requirement{Synchronizácia so serverom}{Spoľahlivosť}{M}{Údaje používateľa sa synchronizujú s centrálnou databázou cez zabezpečené pripojenie.}
+    \requirement{Rýchlosť odozvy}{Výkon}{S}{Aplikácia poskytuje odpoveď na používateľské akcie do 2 sekúnd v bežných podmienkach.}
+    \requirement{Prevádzkové náklady}{Údržba}{S}{Aplikácia má nízke prevádzkové náklady na údržbu a správu.}
 \end{requirements}
 
 \section{Cieľová skupina aplikácie}
