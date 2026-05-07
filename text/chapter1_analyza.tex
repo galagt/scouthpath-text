@@ -31,7 +31,15 @@ Sledovanie programu členov je umožnené na zborovej úrovni avšak neobsahuje 
 \cite{campfire}
 
 \subsection{Scouts App}
+Scouts App je webová aplikácia určená pre prehľadné organizovanie skautského zboru. Apikácia poskytuje organizovanie udalostí spolu s prihlasovaním sa členov na tieto udalosti. Ďallej obashuje progres členov v rámci programovej štruktúry BSA.
 
+Aplikácia je rozdelená na dve časti, prvá je určená pre bežných používateľol ako sú skauti, rodičia a vedúci zboru. Druhá časť obsahuje administratávne nástroje pre administrátorov a umožňuje im správu zboru.
+\cite{scouts_app}
+
+\subsection{Zhrnutie konkurencie}
+Na základe analýzy konkurencie som dospel k záveru že neexistuje žiadna aplikácia ktorá by obsahovala program SLSK okrem oficiálnych webových stránok slovenského skautingu. Aplikácie pracujú s rôznymi organizačnými zložkami v rámci skautingu, od aplikácií určených výhradne pre jednotlivcov, cez menšie skupiny až po celé zbory, avšak žiadna z nich nepodporuje skupiny s rôznymi úrovňami oprávnení.
+
+Ohľadom dizajnu aplikácií, všetky analyzované aplikácie obsahovali čo najmenej textu na miestach kde to nebolo potrebné a snažili sa čo najviac využiť zaužívané obrázky z prostredia skautingu. Všetky analyzované aplikácie obsahovali nejakú formu vizualizácie progresu, či už v podobe grafov, alebo v podobe checklistov.
 
 \section{Prípady použitia}
 
@@ -164,7 +172,9 @@ Persóny pre radcov/vedúcich
 
 
 \section{Potreby backendu}
-Na základe požiadavkov vyplývajú nasledujúce funkcionality ktoré sú vyžadované od prípadného backendu. Medzi ne patrí potreba autentizácia a autorizácie používateľov, synchornizácia dát používateľov cez centrálnu databázu. 
+Na základe požiadavkov vyplývajú nasledujúce funkcionality ktoré sú vyžadované od prípadného backendu. Medzi ne patrí potreba autentizácia a autorizácie používateľov, synchornizácia dát používateľov cez centrálnu databázu.
+
+Backend musí podporovať škálovateľnosť, aby zvládal nápor až do 10 000 potencoiálnych používateľov, čo je cieľ SLSK do roku 2030 \cite{noauthor_vyrocna_nodate}. Zároveň musí poskytovat vysokú dostupnosť, aby používatelia mohli kedykoľvek pristupovat k svojim dátam a synchronizovat ich.
 
 \section{Ne-cloudové riešenie}
 Klasické umiestnenie backendu na vlastný server vyžaduje vysokú počiatočnú investíciu, takáto investícia je nevhodná pre dobrovoľnícku neziskovú organizáciu. Zároveň by neumožňovala rýchlu odozvu na počet aktívnych používateľov.
