@@ -15,6 +15,9 @@ Flutter je open-source framework na tvorbu multiplatformných aplikácií. Aplik
 \subsection{Asynchrónne časti}
 Vzhľadom na to že aplikácia musí komunikovat so serverom a databázou, je potrebné implementovat asynchrónne časti ktoré zabezpečia správnu komunikáciu a synchronizáciu dát. Flutter poskytuje nástroje na správu asynchrónnych operácií, ako sú Future a Stream, ktoré umožňujú efektívne načítavanie a aktualizáciu dát bez blokovania používateľského rozhrania. Future sa používa pre jednorazové asynchrónne operácie, zatiaľ čo Stream je vhodný pre kontinuálne prúdy dát, ako sú aktualizácie z databázy v reálnom čase alebo zmeny v stave autentizácie používateľa.
 
+\subsection{Databázové spojenie}
+Na potreby backendu som zvolil databázu Firestore v rámci Firebase, jedná sa o NoSQL JSON dokumentovú databázu. Pre integráciu Flutteru s Firestore je k dispozícií SDK od Googlu. V rámci SDK sú okrem základných operácií k dispozícií aj podpora offline zápisov, ktoré sa zapíšu do cloudu po obnovení internetového pripojenia klienta.
+
 \section{Nasadenie aplikácie}
 
 \subsection{Zabezpečenie backendu}
