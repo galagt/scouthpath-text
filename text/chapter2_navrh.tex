@@ -1,0 +1,89 @@
+\chapter{Návrh}
+Táto kapitola sa venuje návrhu frontendu a backendu. Návrh frontendu sa skladá z LoFi a HiFi prototypu. Návrh backandu sa skladá z návrhu API štruktúry.
+
+\section{Doménový model}
+
+
+\section{Procesy}
+Na základe analýzy musí systém podporovať hlavné procesy. Prvým procesom je autentizácia používateľa, tento proces obsahuje prihlásenie registrovaného používateľa alebo registráciu nového používateľa. Na identifikáciu používateľa slúži emailová adresa. 
+
+Ďalším procesom je vytvorenie družiny, resp. pridanie sa do už existujúcej družiny. Na zvýšenie bezpečnosti dát v rámci aplikácie som sa rozhodol vytvoriť systém pridávania do družiny založený na unikátnom kóde družiny. Na zlepšenie použitenosti a minimalizáciu chýb pri zadávaní kódu družiny som sa rozhodol vytvoriť systém QR kódov, ktorý umožní používateľom jednoducho naskenovat QR kód a automaticky se přidat do družiny bez nutnosti zadávat kód ručně.
+
+V poslednom rade je najdôležitejší proces označovanie úloh za splnené a potrebné schvaľovanie vedúcim.
+
+\section{Aktualizácie obsahu programu SLSK}
+Program SLSK sa síce nemení často, ale môže dôjsť buď k zmene jednotlivých častí, pridanie novej časti napríklad novej výnimočnej výzvy alebo môže dôjsť ku zrušeniu nejakej časti. Na zachovanie možnosti prehliadania si programovej ponuky SLSK musia byť všekty jeho časti uložené aj v zariadení spolu s aplikáciou. Pri štarte aplikácie sa uskutoční dotaz na server ohľadom nových častí programovej ponuky a v prípade zmeny sa tieto zmeny prepíšu do zariadenia používateľa.
+
+
+\section{Architektúra systému}
+Systém obsahuje distribuovaných klientov na koncových zariadeniach používateľov. Na synchronizáciu dát na základe analýzy je najvhodnejšia klient server architektúra.
+
+Pri voľbe backendu som zvolil využitie BaaS služby na urýchlenie vývoju pre čo najskoršie uvedenie do testovacej prevádzky.
+
+\section{Nástroj pre družiny vs. nástroj pre celý skauting}
+Pri návrhu systému som zvažoval či vytvoriť nástroj ktorý bude určený pre družiny ktoré budú existovať v systéme izolovane alebo vytvoriť nástroj ktorý bude určený pre celý skauting. Avšak nástroj pre celý skauting by musel byť komplexnejší a pokrývať správu zborov alebo aj oblastí, čo by výrazne predĺžilo vývoj a zložitosť systému.
+
+\section{Voľba programovacieho jazyku}
+Na tvorbu aplikácie som zvolil jazyk Dart a framework Flutter. Dôvodom je možnosť vytvoriť multiplatformovú aplikáciu s jedným kódom pre Android aj iOS. Flutter poskytuje bohaté možnosti pre tvorbu užívateľského rozhrania a zároveň umožňuje efektívnu správu stavu aplikace, čo je kľúčové pre sledovanie progresu používateľov v programes SLSK.
+
+Na backend som zvolil využitie Firebase, konkrétne Firestore pre databázu a Firebase Authentication pre autentizáciu používateľov. Firebase poskytuje robustné a škálovateľné riešenie, ktoré umožňuje rychlý vývoj a jednoduchú integráciu s Flutterom.
+
+\section{LoFi prototyp}
+Pri tvorbe LoFi prototypu som pokračoval vo viacerých fázach. Na začiatok som vytvoril jednoduchý wireframe, v ktorom som sa zameral na logické oddelenie celkov funkcií aplikácie a základnú štruktúru používateľského rozhrania. Následne som vytvoril mockup prototyp, ktorý obsahoval prepracovanie jednotlivých prvkov používateľského rozhrania s ohľadom na farebnú schému a využitie priestora.
+
+\subsection{Obrazovky}
+Primárny navigačný panel sa nachádza v spodnej časti obrazovky a obsahuje 3 položky, ktoré umožňujú navigáciu medzi hlavnou obrazovkou s prehľadom programovej ponuky SLSK, obrazovkou s prehľadom sledovaných úloh a obrazovkou mojej družiny.
+
+Hlavnou obrazovkou aplikácie je obrazovka s prehľadom programovej ponuky SLS na ktorej prihlásený používateľ môže označovať úlohy za sledované a splnené. Táto obrazovka je rozdelená do 4 sekcií podľa druhu programu. Na toto rozdelenie som zvolil ovládací prvok TabBar, ktorý umožňuje jednoduché prepínanie medzi jednotlivými sekciami.
+
+Prehľad jednotlivých sekcií má dve rôzne podoby, prvá predstavuje zoznam odznakov ktoré sú zobrazené ako obrázok s názvom, toto zobrazenie je použité pre sekciu odboriek, výziev a najvyšších programových ocenení. Zároveň toto zobrazenie z veľkej časti odpovedá zobrazeniu ktoré sa nachádza na stránkach SLSK, čo zvyšuje použiteľnosť a znižuje kognitívnu záťaž používateľa pri orientácii v aplikácii.
+
+Druhá podoba zobrazenia je použitá pre sekciu napredovania, ktoré je obsahovo neobsahuje žiadne obrázky, za to je ale členené ako strom rôznych sekcií s listami predstavujúcimi jednotlivé úlohy. Na zobrazenie som preto využil Accordion, ktorý umožňuje efektívne zobrazenie hierarchických dát a zároveň poskytuje jednoduché ovládanie pre používateľov. Zároveň umožňuje zbalenie úloh ktoré sú už splenené a zvyšuje tak prehľadnosť naprieč množstvom textu.
+
+Ďalšou obrazovkou je obrazovka s prehľadom profilu používateľa, na ktorej sa nachádza základné informácie o používateľovi, presmerovanie na zmenu hesla a tlačitka na opustenie družiny a odhlásenie sa z aplikácie. V prípade že používateľ nie je prihlásený tak sa mu na tejto obrazovke zobrazí možnosť na registráciu alebo prihlásenie sa do aplikácie.
+
+V prípade že je používateľ prihlásený tak sa mu na navigačnom paneli zobrazí možnosť moja družina. Táto obrazovka má tri rôzne podoby podľa toho či je používateľ členom družiny, vedúcim družiny alebo nie je členom žiadnej družiny. V prípade že používateľ nie je členom žiadnej družiny tak sa mu zobrazí možnosť vytvorenia novej družiny alebo pridania sa do už existujúcej družiny pomocou kódu družiny alebo naskenovaním QR kódu družiny.
+
+V prípade že používateľ je členom družiny ale nie je vedúcim tak sa mu zobrazí prehľad činnosti členov družiny so zámerom na podporu aktivity medzi členmi družiny.
+
+V prípade že používateľ je vedúcim družiny tak sa mu zobrazí zoznam všetkých členov družiny s možnosťou splnenia úloh členom družiny. Zároveň sa mu zobrazí tabuľka s prehľadom progresu zvolených členov družiny v zvolených úlohách, čím uožní efektívne sledovanie progresu celej družiny. Túto tabuľku zároveň môže vedúci vyexportovať, čím získá možnosť analyzovat progres družiny mimo aplikácie a zdieľať tento progres s ostatnými vedúcimi družín.
+
+V poslednom rade je tu obrazovka s prehľadom sledvaných úloh a v prípade vedúceho aj prehľad úloh čakajúcich na schválenie. Na šetrenie miesta a zlepšenie prehľadnosti som zvolil akcie ktoré idú vykonať nad úlohou pomocou gest potiahnutia do strany, v prípade sledovanej úlohy sa jedná o splenenie úlohy a odstránenie úlohy zo sledovaných, v prípade úlohy čakajúcej na schválenie sa jedná o schválenie úlohy a zamietnutie úlohy. 
+
+
+
+\section{HiFi prototyp}
+HiFi prototyp som vytvoril na základe LoFi prototypu, pričom som sa zameral na detailné spracovanie vizuálnych prvkov a interakcií. V tomto prototypu som implementoval všetky plánované funkcie a zabezpečil, aby používateľské rozhranie bolo intuitívne a esteticky príjemné. HiFi prototyp slúži ako základ pre vývoj finálnej verzie aplikácie a umožňuje testovanie používateľského zážitku pred samotným vývojom.
+
+\subsection{Farebná schéma}
+Pri voľbe farebnej schémy som využil farby ktoré sú použité v rámci vizuálnej identity SLSK, čo zvyšuje konzistenciu a rozpoznateľnosť aplikácie v rámci skautingu. Farebná schéma SLSK je obsiahnutá v rámci brand manuálu SLSK. \cite{brand_manual} Z farieb SLSK som zvolil nasledujúce farby:
+\begin{itemize}
+    \item Primárna farba: Žltá, konkrétne RGB 242 169 0. Táto farba je dominantná a je použitá pre zvýraznenie dôležitých prvkov a akcií v aplikácii, ako sú tlačítka a zvýraznené texty.
+    \item Sekundárna farba: Tmavo modrá, konkrétne RGB 0 40 85. Táto farba je použitá pre kontrast a podporu primárnej farby, používa sa pre zobrazenie textu a ikon.
+    \item Farba pozadia: Biela, konkrétne RGB 255 255 255. Táto farba je použitá pre pozadie aplikácie.
+    \item Farba úspechu: Zelená, konkrétne RGB 114 191 68. Táto farba je použitá pre indikáciu úspešného splnenia úlohy.
+    \item Farba chyby: Červená, konkrétne RGB 224 60 49. Táto farba je použitá pre indikáciu chyby, zamietnutia alebo zrušenia sledovania úlohy.
+\end{itemize}
+Použitie týchto farieb zachováva vysoký kontrast a zaisťuje dobrú čitateľnosť a použiteľnosť aplikace, zároveň zvyšuje vizuálnu konzistenciu s vizuálnou identitou SLSK.
+
+\subsection{Voľba ikon}
+Na úsporu miesta na obrazovke som sa rozhodol nahradiť textové tlačítka ikonami. Pri výbere ikon som zvolil ikony z knižnice Material Icons, kotré sú volne dostupné a poskytujú široý výber. Pri výbere ikon som sa zameral na to, aby ikony boli intuitívne a ľahko rozpoznateľné. Výsledný výber ikon bol nasledovný:
+\begin{itemize}
+    \item Použivateľský profil
+    \item Moje úlohy
+    \item Moja družina
+    \item Program
+    \item Hromadné splnenie úlohy
+    \item Výber členov družiny
+    \item Výber úloh
+    \item Sledovanie úlohy
+    \item Zrušenie sledovania úlohy
+    \item Splnenie úlohy
+    \item Čakanie na schválenie úlohy
+    \item Splnená úloha
+    \item Pridanie úlohy medzi výber
+    \item Odstránenie úlohy z výberu
+\end{itemize}
+Konzistentné použitie ikon naprieč aplikáciou zvyšuje použiteľnosť a prehľadnosť aplikácie.
+
+
