@@ -1,5 +1,11 @@
 \chapter{Implementácia}
 
+\section{Vývojové prostredie}
+Na vývoj aplikácie som využil Visual Studio Code, ktorý poskytuje širokú škálu rozšírení a nástrojov pre vývoj v jazyku Dart a frameworku Flutter. Pre správu závislostí a buildovanie projektu som použil nástroj Flutter CLI, ktorý je súčasťou Flutter SDK.
+
+\section{Verzovací systém}
+Na správu zdrojového kódu som využil verzovací systém Git.
+
 \section{Získavanie dát}
 Programová ponuka slovenského skautingu sa nachádza primárne na webových stŕankach. Obsahom stránok je detailný popis odboriek, výziev, voľných programových modulov a najvyšších programových ocenení. Na získanie dát ohľadom programu som zvolil webscraping\ref{webscraping} so snahou uložiť tieto dáta do štruktúrovanej podoby, ktorú môžem následne využiť v mojej aplikácii.
 
@@ -18,9 +24,14 @@ Vzhľadom na to že aplikácia musí komunikovat so serverom a databázou, je po
 \subsection{Databázové spojenie}
 Na potreby backendu som zvolil databázu Firestore v rámci Firebase, jedná sa o NoSQL JSON dokumentovú databázu. Pre integráciu Flutteru s Firestore je k dispozícií SDK od Googlu. V rámci SDK sú okrem základných operácií k dispozícií aj podpora offline zápisov, ktoré sa zapíšu do cloudu po obnovení internetového pripojenia klienta.
 
+
 \subsection{Nastavenie témy}
 Na unifikáciu témy aplikácie flutter poskytuje nástroj ThemeData, ktorý umožňuje definovat farby, fonty a ďalšie vizuálne prvky aplikácie. V rámci implementácie som vytvoril vlastnú tému, ktorá reflektuje vizuálnu identitu slovenského skautingu, vrátane použití farieb a typografie, ktoré sú v súlade s oficiálnymi materiálmi skautingu.
 % add theme snippet
+
+
+\section{Využitie nástrojov umelej inteligencie}
+V rámci implementácie autor využil nástroje umelej inteligencie na vygenerovanie boilerplate kódu a na opravu bugov počas vývoja. Pri generovaní boilerplate kódu si nástroje umelej inteligencie poradili s vysokou úspešnosťou avšak stále bolo treba doladiť vygenerovaný kód aby spĺňal požiadavky projektu. Pri oprave bugov si viedli nástroje umelej inteligencie podstatne horšie a často generovali kód ktorý nefungoval alebo bol neefektívny. Analýza kódu pomocou umelej inteligencie nebola dostatočná a často neidentifikovala problém.
 
 \section{Nasadenie aplikácie}
 
