@@ -30,7 +30,62 @@ Firestore ako NoSQL JSON dokumentová databáza nepodporuje klasický join z SQL
 Obmedzenia v rámci Firestore databázy sú v celkovej veľkosti dokumentu a v počte prečítaných a zapísaných dokumentov, nie v množstve prenesených dát. Z tohto dôvodu som prispel k denormalizácií dát aby som znížil počet prečítaných dokumentov.
 
 \subsubsection{Kolekcie}
+Pre potreby aplikácie som vytvoril v rámci Firestore nasledovné kolekcie:
 
+\begin{description}
+    \item[users] kolekcia obsahujúca dokumenty predstavujúce jednotlivých používateľov aplikácie.
+        \begin{description}
+            \item[uid] - identifikátor dokumentu, zhodný s UID používateľa v rámci Firebase Authentication
+            \item[email] - emailová adresa používateľa
+            \item[name] - skautská prezývka používateľa
+        \end{description}
+    \item[groups] kolekcia obsahujúca dokumenty predstavujúce jednotlivé družiny.
+        \begin{description}
+            \item[gid] - identifikátor dokumentu, automaticky generovaný
+            \item[changedAt] - dátum a čas poslednej zmeny
+            \item[code] - unikátny kód družiny na pridávanie členov
+            \item[leaderCode] - unikátny kód družiny na pridávanie radcov
+            \item[name] - názov družiny
+        \end{description}
+    \item[group\_keys] kolekcia obsahujúca dokumenty predstavujúce kódy družín, určené pre pridávanie se do družiny.
+        \begin{description}
+            \item[code] - unikátny kód družiny
+            \item[groupId] - identifikátor družiny
+            \item[groupName] - názov družiny
+        \end{description}
+    \item[memberships] kolekcia obsahujúca dokumenty predstavujúce jednotlivé členstvá v družinách
+        \begin{description}
+            \item[id] - identifikátor dokumentu, genrovaný zložením identifikátora používateľa a identifikátora družiny
+            \item[changedAt] - dátum a čas poslednej zmeny
+            \item[dateFrom] - dátum začiatku členstva
+            \item[dateTo] - dátum ukončenia členstva, null v prípade aktívneho členstva
+            \item[entityId] - identifikátor družiny
+            \item[role] - rola člena v družine
+            \item[type] - typ entity, v tomto prípade vždy group
+            \item[userEmail] - emailová adresa používateľa
+            \item[userId] - identifikátor používateľa
+            \item[userName] - skautská prezývka používateľa      
+        \end{description}
+    \item[userProgress] kolekcia obsahujúca dokumenty predstavujúce progres používateľa v rámci programu, denormalizovaná na zníženie počtu čitání a zápisov dokumentov
+        \begin{description}
+            \item[id] - identifikátor dokumentu, genrovaný zložením identifikátora používateľa a prípadne identifikátora družiny
+            \item[lastUpdated] - dátum a čas poslednej zmeny
+            \item[groupId] - identifikátor družiny, null v prípade že progres nieje spojený s družinou
+            \item[userId] - identifikátor používateľa
+            \item[userName] - skautská prezývka používateľa
+            \item[data] - pole objektov predstavujúcich jednotlivé úlohy a ich stav
+                \begin{description}
+                    \item[id] - identifikátor úlohy
+                    \item[c]ompletedAt - dátum a čas splnenia úlohy
+                    \item[s]tate - stav úlohy, nabýva hodnôt "untracked", "tracked", "completed" a "verified"
+                    \item[v]erifiedAt - dátum a čas overenia úlohy
+                    \item[vb] (verifiedBy) - identifikátor používateľa, ktorý overil úlohu
+                    \item[vs] (verifiableBySelf) - príznak, či môže byť úloha overená sebou samým
+                \end{description}
+        \end{description}
+\end{description}
+
+Kolekcie obsahujú denormalizované dáta na zamedzenie nutnosti vykonávat joiny na strane klienta. Zároveň znižuje toto rozdelenie počet prečítaných a zapísaných dokumentov čo je dôležité vzhľadom na obmedzenia Firestore databáze v bezplatnom pláne.
 
 \subsection{Zabezpečenie databáze}
 Firestore umožňuje priamy prístup k dátam z klienta. Z tohto dôvodu existujú pravidlá ktoré umožnia zabezpečiť prístup k databázy a požiadavky ktoré nie sú povolené budú zamietnuté.
