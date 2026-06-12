@@ -98,6 +98,20 @@ Pri nastavení pravidiel som postupoval podľa prípadov použiťia a povoloval 
 Na unifikáciu témy aplikácie flutter poskytuje nástroj ThemeData, ktorý umožňuje definovat farby, fonty a ďalšie vizuálne prvky aplikácie. V rámci implementácie som vytvoril vlastnú tému, ktorá reflektuje vizuálnu identitu slovenského skautingu, vrátane použití farieb a typografie, ktoré sú v súlade s oficiálnymi materiálmi skautingu. Rozhodol som sa pre vytvorenie dvoch tém, svetlej a tmavej, aby som umožnil používateľom vybrať si preferovaný vzhľad aplikácie. Témy definujú základné farby prvkov používateľského rozhrania, čím zaisťujú konzistentnú aplikáciu farieb naprieč celou aplikáciou a zlepšujú kvalitu kódu tým, že centralizujú definíciu vizuálnych prvkov. Zároveň umožňuje jednoduchú výmenu celej témy aplikácie.
 % add theme snippet
 
+\begin{lstlisting}[caption={Aplikovanie témy},label=list:8-6,captionpos=b,float,abovecaptionskip=-\medskipamount,abovecaptionskip=\medskipamount,language=C]
+    #include<stdio.h>
+    #include<iostream>
+    // A comment
+    int main(void)
+    {
+        printf("Hello World\n");
+        return 0;
+    }
+\end{lstlisting}
+
+\subsection{Skenovanie QR kódu}
+Na splnenie funkčnej požiadavky \ref{req:join-group-member}
+
 
 \subsection{Internacionalizácia}
 Pri implementácií som zvažoval pridať do aplikácie podporu pre viac jazykov. Po preskúmaní programu SLSK ktorý tvorí väčšinu obsahu aplikácie som dospel k záveru že obsah je dostupný len v slovenskom jazyku a neexistuje žiadna oficiálna verzia programu SLSK v inom jazyku. Z tohto dôvodu som sa rozhodol implementovat aplikáciu iba v slovenskom jazyku.
